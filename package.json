@@ -21,3 +21,4 @@
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable"
   }
+ }
