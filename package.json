@@ -19,6 +19,8 @@
   "private": false,
   "scripts": {
     "postinstall": "husky install",
+    "compail": "sass public/styles/sass/style.sass publicstyles/css/style.css",
+    "soyProgramador": "sass --watch public/styles/sass/style.sass public/styles/css/style.css",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable"
   }
