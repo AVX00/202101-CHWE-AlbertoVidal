@@ -1,6 +1,7 @@
 module.exports = {
   env: {
     browser: true,
+    jest: true,
     es2021: true,
   },
   extends: ["airbnb-base", "prettier"],
@@ -8,5 +9,8 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  rules: {},
+  rules: {
+    "inport/extensions": "off",
+    "no-new": "off",
+  },
 };
