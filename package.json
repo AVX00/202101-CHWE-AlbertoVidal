@@ -1,3 +1,4 @@
+{
   "name": "202102",
   "version": "1.0.0",
   "main": "index.js",
@@ -10,7 +11,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.3.0",
     "jest": "^27.4.7",
-    "sass": "^1.49.0"
+    "sass": "^1.49.0",
     "dlx": "^0.2.1",
     "eslint-plugin-import": "^2.25.2",
     "husky": "^7.0.0"
@@ -21,3 +22,4 @@
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable"
   }
+}
