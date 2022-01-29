@@ -31,8 +31,7 @@ export default class PageComponent extends Component {
     new Navigation(navigationParent);
   }
 
-  static addCard() {
-    const cardParent = document.querySelctor("pokemone-list");
-    new Card(cardParent);
+  static addCard(parentElement, { name, sprites: { front_default: url } }) {
+    new Card(parentElement, name, url);
   }
 }
