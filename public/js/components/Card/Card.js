@@ -12,7 +12,10 @@ export default class Card extends Component {
   generateInnerHtml() {
     this.element.innerHTML = `
     <div class="card">
-    <img scr="${this.pokeurl}"></img>
+    <img
+      src="${this.pokeurl}"
+      alt="${this.pokename}"
+    />
     <p>${this.pokename}</p>
     </div>
     `;
