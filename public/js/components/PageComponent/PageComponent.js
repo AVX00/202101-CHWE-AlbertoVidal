@@ -1,4 +1,4 @@
-import Card from "../Card/Card";
+import Card from "../Card/Card.js";
 import Component from "../Component/Component.js";
 import Navigation from "../Navigation/Navigation.js";
 
@@ -8,6 +8,9 @@ export default class PageComponent extends Component {
     const className = "container";
 
     super(parentElement, htmlTag, className);
+
+    this.generateHTML();
+    this.generateNavigation();
   }
 
   generateHTML() {
@@ -24,7 +27,7 @@ export default class PageComponent extends Component {
   }
 
   generateNavigation() {
-    const navigationParent = this.element.querySelctor(".header");
+    const navigationParent = this.element.querySelector(".header");
     new Navigation(navigationParent);
   }
 
