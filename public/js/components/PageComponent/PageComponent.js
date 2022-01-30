@@ -1,3 +1,4 @@
+import Button from "../Button/Button.js";
 import Card from "../Card/Card.js";
 import Component from "../Component/Component.js";
 import Navigation from "../Navigation/Navigation.js";
@@ -8,7 +9,6 @@ export default class PageComponent extends Component {
     const className = "container";
 
     super(parentElement, htmlTag, className);
-
     this.generateHTML();
     this.generateNavigation();
   }
@@ -22,6 +22,7 @@ export default class PageComponent extends Component {
         <ul class="pokemone-list">
         </ul>
       </main>
+      <footer class="footer"></footer>
 
     `;
   }
@@ -33,5 +34,22 @@ export default class PageComponent extends Component {
 
   static addCard(parentElement, { name, sprites: { front_default: url } }) {
     new Card(parentElement, name, url);
+  }
+
+  static getButtonClass(buttonLink) {
+    if (!buttonLink) {
+      return "button button--disabled";
+    }
+    return "button button--enabled";
+  }
+
+  static generateButtons(parentElement, previous, next) {
+    const button1Text = "Previous";
+    const button2Text = "Next";
+    const buttonsParent = parentElement;
+    buttonsParent.innerHTML = "";
+    new Button(buttonsParent, this.getButtonClass(true), button1Text, previous);
+
+    new Button(buttonsParent, this.getButtonClass(false), button2Text, next);
   }
 }
