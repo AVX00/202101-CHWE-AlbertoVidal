@@ -10,8 +10,8 @@ export default class Navigation extends Component {
 
   generateHtml() {
     this.element.innerHTML = `
-      <a class="navigation__link" href="pokemones">pokemones</a>
-      <a class="navigation__link" href="">my pokemones</a>
+      <a class="navigation__link" href="/index.html">pokemones</a>
+      <a class="navigation__link" href="/myPokemon.html">my pokemones</a>
       <a class="navigation__link" href="">detailed pokemoning</a>
     `;
   }

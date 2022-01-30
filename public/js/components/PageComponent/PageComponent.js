@@ -3,6 +3,7 @@ import Card from "../Card/Card.js";
 import Component from "../Component/Component.js";
 import Navigation from "../Navigation/Navigation.js";
 
+const myPokeApi = "https://enigmatic-depths-16565.herokuapp.com/pokemon";
 export default class PageComponent extends Component {
   constructor(parentElement) {
     const htmlTag = "div";
@@ -33,7 +34,7 @@ export default class PageComponent extends Component {
   }
 
   static addCard(parentElement, { name, sprites: { front_default: url } }) {
-    new Card(parentElement, name, url);
+    return new Card(parentElement, name, url);
   }
 
   static getButtonClass(buttonLink) {
@@ -62,5 +63,18 @@ export default class PageComponent extends Component {
     );
 
     new Button(buttonsParent, this.getButtonClass(nextLink), button2Text, next);
+  }
+
+  static generateFavButton(parentElement, pokemon) {
+    const action = async () => {
+      const data = await JSON.stringify(pokemon);
+      fetch(myPokeApi, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: data,
+      });
+    };
+
+    new Button(parentElement, "favButton", "push", action);
   }
 }
