@@ -22,6 +22,7 @@ export default class PageComponent extends Component {
         <ul class="pokemone-list">
         </ul>
       </main>
+      <footer class="footer"></footer>
 
     `;
   }
@@ -42,26 +43,13 @@ export default class PageComponent extends Component {
     return "button button--enabled";
   }
 
-  static generateButtons(buttonsParent) {
+  static generateButtons(parentElement, previous, next) {
     const button1Text = "Previous";
     const button2Text = "Next";
+    const buttonsParent = parentElement;
+    buttonsParent.innerHTML = "";
+    new Button(buttonsParent, this.getButtonClass(true), button1Text, previous);
 
-    new Button(
-      buttonsParent,
-      this.getButtonClass(true),
-      button1Text,
-      this.getButton1Action
-    );
-
-    new Button(
-      buttonsParent,
-      this.getButtonClass(false),
-      button2Text,
-      this.getButton2Action
-    );
+    new Button(buttonsParent, this.getButtonClass(false), button2Text, next);
   }
-
-  static getButton1Action() {}
-
-  static getButton2Action() {}
 }
