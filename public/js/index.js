@@ -1,6 +1,6 @@
 import PageComponent from "./components/PageComponent/PageComponent.js";
 
-new PageComponent(document.body);
+const page = new PageComponent(document.body);
 
 async function getPokemons() {
   const data = await fetch("https://pokeapi.co/api/v2/pokemon/");
@@ -25,3 +25,4 @@ async function createCards(pokemonArray) {
 }
 
 createCards(getPokemons());
+PageComponent.generateButtons(page.element);
