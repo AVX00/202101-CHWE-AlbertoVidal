@@ -29,9 +29,9 @@ async function createCards(pokemonArray) {
 }
 
 async function generatePage(api) {
-  const [pokemonArray, previous, next] = await getPokemons(api);
+  const [pokemonArray, previous, next] = await getPokemons(api || pokeapi);
   createCards(pokemonArray);
-  const previousAction = async () => createCards(await generatePage(previous));
+  const previousAction = async () => generatePage(previous);
   const nextAction = async () => generatePage(next);
   const buttonsParent = page.element.querySelector(".footer");
   PageComponent.generateButtons(buttonsParent, previousAction, nextAction);
