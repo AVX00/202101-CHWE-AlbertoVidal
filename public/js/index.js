@@ -24,7 +24,8 @@ async function createCards(pokemonArray) {
   const parentElement = document.body.querySelector(".pokemone-list");
   parentElement.innerHTML = "";
   pokeArray.forEach(async (pokemon) => {
-    PageComponent.addCard(parentElement, await pokemon);
+    const card = PageComponent.addCard(parentElement, await pokemon);
+    PageComponent.generateFavButton(card.element, pokemon);
   });
 }
 
