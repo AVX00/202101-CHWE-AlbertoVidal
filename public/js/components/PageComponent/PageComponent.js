@@ -43,13 +43,24 @@ export default class PageComponent extends Component {
     return "button button--enabled";
   }
 
-  static generateButtons(parentElement, previous, next) {
+  static generateButtons(
+    parentElement,
+    previous,
+    next,
+    previousLink,
+    nextLink
+  ) {
     const button1Text = "Previous";
     const button2Text = "Next";
     const buttonsParent = parentElement;
     buttonsParent.innerHTML = "";
-    new Button(buttonsParent, this.getButtonClass(true), button1Text, previous);
+    new Button(
+      buttonsParent,
+      this.getButtonClass(previousLink),
+      button1Text,
+      previous
+    );
 
-    new Button(buttonsParent, this.getButtonClass(false), button2Text, next);
+    new Button(buttonsParent, this.getButtonClass(nextLink), button2Text, next);
   }
 }
