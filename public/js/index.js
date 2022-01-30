@@ -34,7 +34,13 @@ async function generatePage(api) {
   const previousAction = async () => generatePage(previous);
   const nextAction = async () => generatePage(next);
   const buttonsParent = page.element.querySelector(".footer");
-  PageComponent.generateButtons(buttonsParent, previousAction, nextAction);
+  PageComponent.generateButtons(
+    buttonsParent,
+    previousAction,
+    nextAction,
+    previous,
+    next
+  );
 }
 
 generatePage(pokeapi);
