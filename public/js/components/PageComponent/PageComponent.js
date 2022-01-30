@@ -77,4 +77,15 @@ export default class PageComponent extends Component {
 
     new Button(parentElement, "favButton", "push", action);
   }
+
+  static generateRemoveButton(parentElement, pokemon) {
+    const action = async () => {
+      const pokemonToRemove = pokemon.id;
+      fetch(`${myPokeApi}/${pokemonToRemove}`, {
+        method: "DELETE",
+      });
+    };
+
+    new Button(parentElement, "favButton", "push", action);
+  }
 }
